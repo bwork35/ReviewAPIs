@@ -21,9 +21,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        fetchPokemonWith(searchTerm: "25")
     }
   
     //MARK: - Helper Methods
+    func fetchPokemonWith(searchTerm: String) {
+        PokemonController.fetchPokemonWith(searchTerm: searchTerm.lowercased()) { [weak self] (result) in
+            switch result {
+            case .success(let pokemon):
+                self?.fetchSpriteAndUpdateViewsWith(pokemon: pokemon)
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.presentErrorToUser(localizedError: error)
+                }
+            }
+        }
+    }
+    
     func fetchSpriteAndUpdateViewsWith(pokemon: Pokemon) {
         PokemonController.fetchImageFor(pokemon: pokemon) { [weak self] (result) in
             DispatchQueue.main.async {
@@ -44,16 +58,7 @@ class ViewController: UIViewController {
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text, !searchTerm.isEmpty else {return}
-        PokemonController.fetchPokemonWith(searchTerm: searchTerm.lowercased()) { [weak self] (result) in
-            switch result {
-            case .success(let pokemon):
-                self?.fetchSpriteAndUpdateViewsWith(pokemon: pokemon)
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self?.presentErrorToUser(localizedError: error)
-                }
-            }
-        }
+        fetchPokemonWith(searchTerm: searchTerm)
     }
 } //End of extension
 
