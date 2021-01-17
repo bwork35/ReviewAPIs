@@ -16,6 +16,8 @@
 		93FCA43525B3A104008A8738 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCA43425B3A104008A8738 /* Post.swift */; };
 		93FCA43825B3A10F008A8738 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCA43725B3A10F008A8738 /* PostController.swift */; };
 		93FCA43D25B3A6B8008A8738 /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCA43C25B3A6B8008A8738 /* PostError.swift */; };
+		93FCA44225B3E3B2008A8738 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCA44125B3E3B2008A8738 /* PostTableViewCell.swift */; };
+		93FCA44525B3EA89008A8738 /* ErrorActionSheetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCA44425B3EA89008A8738 /* ErrorActionSheetExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		93FCA43425B3A104008A8738 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		93FCA43725B3A10F008A8738 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		93FCA43C25B3A6B8008A8738 /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
+		93FCA44125B3E3B2008A8738 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		93FCA44425B3EA89008A8738 /* ErrorActionSheetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorActionSheetExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		93FCA42C25B39F83008A8738 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93FCA44025B3E390008A8738 /* CustomCells */,
 				93FCA41825B39EF2008A8738 /* Main.storyboard */,
 			);
 			path = Views;
@@ -128,8 +133,17 @@
 			isa = PBXGroup;
 			children = (
 				93FCA43C25B3A6B8008A8738 /* PostError.swift */,
+				93FCA44425B3EA89008A8738 /* ErrorActionSheetExtension.swift */,
 			);
 			path = "Helpers+Extensions";
+			sourceTree = "<group>";
+		};
+		93FCA44025B3E390008A8738 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				93FCA44125B3E3B2008A8738 /* PostTableViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FCA44525B3EA89008A8738 /* ErrorActionSheetExtension.swift in Sources */,
+				93FCA44225B3E3B2008A8738 /* PostTableViewCell.swift in Sources */,
 				93FCA43825B3A10F008A8738 /* PostController.swift in Sources */,
 				93FCA43225B39FE9008A8738 /* PostListTableViewController.swift in Sources */,
 				93FCA41325B39EF2008A8738 /* AppDelegate.swift in Sources */,
