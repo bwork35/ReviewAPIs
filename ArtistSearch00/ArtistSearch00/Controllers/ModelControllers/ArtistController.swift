@@ -21,7 +21,7 @@ class ArtistController {
     static let apiKeyString = "apikey"
     static let apiKeyValue = "c2dfd942d236a20c4d0dba3c3bb12d75"
     
-    static func fetchArtist(with searchTerm: String, completion: @escaping (Result<[ArtistObject], ArtistError>) -> Void) {
+    static func fetchArtist(with searchTerm: String, completion: @escaping (Result<[Artist], ArtistError>) -> Void) {
         
         guard let baseURL = baseURL else {return completion(.failure(.invalidURL))}
         let artistSearchURL = baseURL.appendingPathComponent(artistSearchComponent)
@@ -49,7 +49,14 @@ class ArtistController {
             do {
                 let topLevelObject = try JSONDecoder().decode(TopLevelObject.self, from: data)
                 let artistObjects = topLevelObject.message.body.artistList
-                completion(.success(artistObjects))
+                
+                var artists: [Artist] = []
+                for object in artistObjects {
+                    let artist = object.artist
+                    artists.append(artist)
+                }
+                
+                completion(.success(artists))
             } catch {
                 print("======== ERROR ========")
                 print("Function: \(#function)")
