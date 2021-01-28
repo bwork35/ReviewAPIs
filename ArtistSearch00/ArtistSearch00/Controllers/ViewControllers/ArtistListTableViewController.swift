@@ -13,7 +13,7 @@ class ArtistListTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK: - Properties
-    var artists: [ArtistObject] = []
+    var artists: [Artist] = []
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -29,9 +29,9 @@ class ArtistListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath)
 
-        let artistObject = artists[indexPath.row]
-        cell.textLabel?.text = artistObject.artist.artistName
-        cell.detailTextLabel?.text = artistObject.artist.artistTwitterURL
+        let artist = artists[indexPath.row]
+        cell.textLabel?.text = artist.artistName
+        cell.detailTextLabel?.text = artist.artistTwitterURL
        
         return cell
     }
